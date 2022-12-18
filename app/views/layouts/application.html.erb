@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsTest</title>
+    <title>RailsCrypto</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
   </head>
 
-  <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body class="d-flex flex-column min-vh-100">
+  <%= render 'header_footer/header'%>  
+  <%= render 'header_footer/flash'%>
+
+  <%= yield %>
+  <%= render 'header_footer/footer'%>
+
   </body>
 </html>

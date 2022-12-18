@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for x in @coins['data'] %>
+        <%# <% for coin in @my_coins %> <%# gioi han coin trong mang my_coins%> 
+            <%# <% if coin == x['symbol'] %>  <%# search coin trong mang my_coins%>
+            <tr>
+                    <td><%= x['cmc_rank']%></td>
+                    <td><%= x['name'] %></td>
+                    <td><%= x['symbol'] %></td>
+                    <td>$<%= x['quote']['USD']['price'].round(2)%></td>  <%#number_to_currency(x['quote']['USD']['price'])%>
+                    <td>$<%= x['quote']['USD']['volume_24h'].round(0)%></td>
+            </tr>
+            <%# <% end %>  
+        <%# <% end %>  
+    <% end %>
+  </tbody>
+</table>
