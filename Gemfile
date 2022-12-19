@@ -71,3 +71,4 @@ group :test do
   gem "webdrivers"
 end
 gem 'devise'
+gem 'bootstrap', '~> 5.0.2'
