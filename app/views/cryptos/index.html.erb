@@ -39,5 +39,31 @@
 </table>
 <br/>
 <strong>Portfolio Profit/Lost:</strong><%= number_to_currency(profit_loss)%>
-<br/><br/>
-<%= link_to 'New Crypto', new_crypto_path, class: "btn btn-default"%>
+<div>
+<%= link_to 'New Crypto', new_crypto_path, class: "btn btn-success"%>
+</div>
+<%=line_chart (@data_chart_result), prefix: "$", round: 2, zeros: true, refresh: 60 %>
+<%#i=0%>
+<%#count = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}.count%>
+<br>
+<%#Portfo.all.pluck(:profit).uniq%>
+<%#Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}%>
+<%#for i in (0..count)%>
+<%# <%= line_chart  [[Portfo.pluck(:created_at)[0], Portfo.all.pluck(:profit).uniq[0]], [Portfo.pluck(:created_at)[1], Portfo.all.pluck(:profit).uniq[1]],[Portfo.pluck(:created_at)[2], Portfo.all.pluck(:profit).uniq[2]],[Portfo.pluck(:created_at)[4], Portfo.all.pluck(:profit).uniq[3]]]%>
+<%#=line_chart [Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[0],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[1],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[4],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}.last]%>
+<%#line_chart [Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[i],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[i+1]]%>
+<%#data_chart_test = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[i]%>
+<%# end %>
+<%#data_chart0 = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-5]%>
+<%#data_chart1 = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-4]%> 
+<%#data_chart2 = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-3]%>
+<%#data_chart3 = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-2]%>
+<%#data_chart_last = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-1]%>
+<%#for i in (0..count)%>
+  <%# array_new = []%>
+  <%#=array_new.push(Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[i])%>
+<%#end%>
+
+
+
+<%#=line_chart [Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[0],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[1],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[4],Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}[count-1]]%>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :cryptos
+  resources :cryptos do
+    collection do
+      get :data
+    end 
+  end
+
   devise_for :users
   get 'subhome/about'
   get 'subhome/readme'
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
   get 'home/table'
   get 'home/readme'
   post '/home/lookup' => 'home/lookup'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

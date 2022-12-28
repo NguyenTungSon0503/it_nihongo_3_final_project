@@ -4,6 +4,7 @@ class CryptosController < ApplicationController
   before_action :correct_user, only: %i[ edit update destroy show ]
   # GET /cryptos or /cryptos.json
   def index
+    @portfos = Portfo.all
     @cryptos = Crypto.all
     require 'net/http'
     require 'json'
@@ -11,8 +12,42 @@ class CryptosController < ApplicationController
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @lookup_crypto = JSON.parse(@response)
+    @profit_loss = 0
+    @cryptos.each do |crypto|
+      if crypto.user_id == current_user.id
+        if crypto.symbol
+          crypto.symbol = crypto.symbol.upcase
+        end
+          for x in @lookup_crypto['data']
+            if crypto.symbol == x['symbol']
+      current_price = x['quote']['USD']['price'].to_d * crypto.amount_owned
+      total_paid = crypto.cost_per * crypto.amount_owned
+      @profit_loss += current_price - total_paid
+            end
+          end
+      end
+    end
+    Portfo.create(profit: @profit_loss,
+      user_id: current_user.id,
+      created_at: Time.now,
+      updated_at: Time.now)
     
+      @data_chart = JSON.parse(Portfo.all.to_json(:only =>[:created_at,:profit])) 
+      @data_chart_result = Hash.new
+
+      @data_chart.each do |a|
+        c = a.values
+        @data_chart_result["#{c[1]}"] = c[0]
+      end
   end
+  
+  def data
+    @data_chart = Portfo.all.to_json(:only =>[:created_at,:profit])
+    
+    render json: JSON.parse(@data_chart)
+  end
+
+
 
   # GET /cryptos/1 or /cryptos/1.json
   def show

@@ -70,5 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "groupdate", "~> 6.1"
+
 gem 'devise'
 gem 'bootstrap', '~> 5.0.2'
+gem "chartkick"

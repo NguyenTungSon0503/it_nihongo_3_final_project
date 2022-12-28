@@ -1,0 +1,2 @@
+class Portfo < ApplicationRecord
+end
