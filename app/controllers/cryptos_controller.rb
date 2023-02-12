@@ -27,11 +27,12 @@ class CryptosController < ApplicationController
           end
       end
     end
+    #Tao 1 record portfo moi, truoc do phai tao model cho portfo
     Portfo.create(profit: @profit_loss,
       user_id: current_user.id,
       created_at: Time.now,
       updated_at: Time.now)
-    
+    #tao data cho chart portfo
       @data_chart = JSON.parse(Portfo.all.to_json(:only =>[:created_at,:profit])) 
       @data_chart_result = Hash.new
 
@@ -41,10 +42,15 @@ class CryptosController < ApplicationController
       end
   end
   
-  def data
-    @data_chart = Portfo.all.to_json(:only =>[:created_at,:profit])
+  def data #tao controller cho /cryptos/data, noi luu tru json portfo
+    @data_chart = Portfo.all.to_json(:only =>[:created_at,:profit, :user_id, :updated_at])
     
     render json: JSON.parse(@data_chart)
+  end
+
+  def data_crypto
+    @data_crypto = Crypto.all.to_json
+    render json: JSON.parse(@data_crypto)
   end
 
 

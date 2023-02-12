@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     collection do
       get :data
     end 
+    collection do
+      get :data_crypto
+    end
   end
 
   devise_for :users
