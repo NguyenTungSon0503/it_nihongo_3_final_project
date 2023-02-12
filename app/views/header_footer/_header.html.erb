@@ -75,9 +75,20 @@
               <%= text_field_tag 'name_or_sym', nil, placeholder:'Enter Crypto input', size: 20 %>
               <%= submit_tag 'Search'%>
               <%end%>
-
-        
-      
+        <% if user_signed_in? %>  
+                  <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, size: 60 %>
+          <% end %>          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><%=link_to "All coin",home_table_path, class: "dropdown-item"%></li>
+            <li><%=link_to "Portfo",cryptos_path, class: "dropdown-item"%></li>
+            <li><%=link_to "Edit Profile",edit_user_registration_path, class: "dropdown-item"%></li>
+            <li><%=link_to "Logout",destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
+          </ul>
+        </div>
+        <% end %>      
     </div>
   </div>
 </nav>
