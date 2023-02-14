@@ -1,8 +1,8 @@
 <h2>Look Up a single Coin Currency</h2>
 <br/>
 <%= form_tag home_lookup_path, :method => 'GET' do %>
- <%= text_field_tag 'name_or_sym', nil, placeholder:'Enter Crypto input', size: 30 %>
- <%= submit_tag 'Lookup Stock Quote'%>
+ <%= text_field_tag 'name_or_sym', nil, placeholder:'Symbol or Nameを入力してくだい', size: 30 %>
+ <%= submit_tag '検索', class: "btn btn-success"%>
  <%end%>
 <br/>
 <%if @input %>

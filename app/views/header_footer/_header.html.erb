@@ -10,12 +10,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <%= link_to "Search", home_lookup_path, class: "nav-link active"%>
+            <%= link_to "検索", home_lookup_path, class: "nav-link active"%>
           <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
         </li>
         
         <li class="nav-item">
-            <%= link_to "Table", home_table_path, class: "nav-link active"%>
+            <%= link_to "コインリスト", home_table_path, class: "nav-link active"%>
           <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
         </li>
 
@@ -28,26 +28,20 @@
        <%#</li>%> 
 
           <li class="nav-item">
-            <%= link_to "Portfolio", cryptos_path, class: "nav-link active"%>
+            <%= link_to "ポートフォリオ", cryptos_path, class: "nav-link active"%>
           <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
-        </li>
-            <li class="nav-item">
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete,class: "nav-link active"%>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Edit Profile", edit_user_registration_path,class: "nav-link active"%>
         </li>
         <% else %>
         <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active"%>
+            <%= link_to "サインアップ", new_user_registration_path, class: "nav-link active"%>
 
             <%# <%= link_to "About Us", home_about_path, class:"nav-link" %>
           <%# <a class="nav-link" href="#">Link</a> %>
         </li>
         <li class="nav-item">
-            <%= link_to "Log In", new_user_session_path, class: "nav-link active"%>
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link active"%>
         </li>
-          <% end %>>
+          <% end %>
         <%# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -72,20 +66,23 @@
         <button class="btn btn-primary" type="submit">Search</button>
       </form> %>
               <%= form_tag home_lookup_path, :method => 'GET' do %>
-              <%= text_field_tag 'name_or_sym', nil, placeholder:'Enter Crypto input', size: 20 %>
-              <%= submit_tag 'Search'%>
+              <%= text_field_tag 'name_or_sym', nil, placeholder:'Symbol or Nameを入力してくだい', size: 20 %>
+              <%= submit_tag '検索', class: "btn btn-success"%>
               <%end%>
         <% if user_signed_in? %>  
                   <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar, size: 60 %>
-          <% end %>          </button>
+            <% else %>
+            <%="Dropdown"%>
+          <% end %>                    
+          </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%=link_to "All coin",home_table_path, class: "dropdown-item"%></li>
-            <li><%=link_to "Portfo",cryptos_path, class: "dropdown-item"%></li>
-            <li><%=link_to "Edit Profile",edit_user_registration_path, class: "dropdown-item"%></li>
-            <li><%=link_to "Logout",destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
+            <li><%=link_to "コインリスト",home_table_path, class: "dropdown-item"%></li>
+            <li><%=link_to "ポートフォリオ",cryptos_path, class: "dropdown-item"%></li>
+            <li><%=link_to "プロファイル編集",edit_user_registration_path, class: "dropdown-item"%></li>
+            <li><%=link_to "ログアウト",destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
           </ul>
         </div>
         <% end %>      
