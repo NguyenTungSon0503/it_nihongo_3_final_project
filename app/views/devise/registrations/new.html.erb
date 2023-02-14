@@ -1,5 +1,9 @@
-<h2>Sign up</h2>
-
+<div class="container">
+  <div class="panel panel-default">
+                <div class="panel-heading">
+<h2>サインアップ</h2>
+      </div>
+      <div class="panel-body panel-primary">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -7,10 +11,10 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-　<div class="field">
+    <div class="field">
     <%= f.label :avatar %>
-    <%= f.file_field :avatar %><br>
+    <br>
+    <%= f.file_field :avatar %><br />
   </div>
 
   <div class="field">
@@ -25,10 +29,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "サインアップ",class: "btn btn-primary"  %>
+      <%= render "devise/shared/links" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
