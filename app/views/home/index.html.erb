@@ -50,37 +50,7 @@
             </card>
             <canvas id="btcChart"></canvas>
         </bitcoin>
-
-        <!-- <cosmos style="width: 30%" class="cosmos">
-            <card class="asset-info">
-                <div class="title">
-                    <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/atm.svg" width="15%"> 
-                    <h1>Cosmos</h1>
-                </div>
-                <div class="details">
-                    <h2 class="asset-price" id="atomPrice"></h2>
-                </div>
-            </card>
-            <canvas id="cosmosChart"></canvas>
-        </cosmos> -->
-
-        <!-- <ethereum style="width: 30%" class="ethereum">
-            <card class="asset-info">
-                <div class="title">
-                    <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg" width="10%"> 
-                    <h1>Ethereum</h1>
-                </div>
-                <div class="details">
-                    <h2 class="asset-price" id="ethPrice"></h2>
-                </div>
-            </card>
-            <canvas id="ethereumChart"></canvas>
-        </ethereum> -->
-    </cards>
-  </container>
-  <container class="container">
-    <cards class="cards">
-        <bitcoin style="width: 30%" class="btc">
+          <ethereum style="width: 30%" class="btc">
             <card class="asset-info">
                 <div class="title">
                     <img src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg" width="15%"> 
@@ -91,7 +61,7 @@
                 </div>
             </card>
             <canvas id="ethChart"></canvas>
-        </bitcoin>
+        </ethereum>
 
         <!-- <cosmos style="width: 30%" class="cosmos">
             <card class="asset-info">
@@ -551,5 +521,11 @@ btcChart {
   border-radius: 0px 0px 30px 30px;
   margin-top: auto;
 }
+ethChart {
+  grid-area: chart;
+  border-radius: 0px 0px 30px 30px;
+  margin-top: auto;
+}
+
 
 </style>
