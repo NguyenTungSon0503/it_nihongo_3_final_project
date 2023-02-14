@@ -1,10 +1,28 @@
-<h1>Editing crypto</h1>
+<br><br>
+<div class="container">
+<h1>Editing Crypto</h1>
 
 <%= render "form", crypto: @crypto %>
 
 <br>
 
-<div>
-  <%= link_to "Show this crypto", @crypto %> |
-  <%= link_to "Back to cryptos", cryptos_path %>
+<div class="btn">
+  <%= link_to "Show this coin", @crypto, class: "btn btn-success"  %>
+  <%= link_to "Back to coins", cryptos_path, class: "btn btn-primary" %>
 </div>
+</div>
+<style>
+.container{
+
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  }
+  .btn{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div>
     <%= form.label :symbol, style: "display: block" %>
     <%= form.text_field :symbol %>
@@ -29,8 +29,18 @@
     <%= form.label :amount_owned, style: "display: block" %>
     <%= form.text_field :amount_owned %>
   </div>
-
+<br>
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+<%# <style>
+.container {
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style> %>

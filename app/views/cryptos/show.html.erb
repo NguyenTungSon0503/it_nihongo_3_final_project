@@ -1,8 +1,19 @@
+
+<div class="container">
 <%= render @crypto %>
 
 <div>
-  <%= link_to "Edit this crypto", edit_crypto_path(@crypto) %> |
+  <%= link_to "Edit this crypto", edit_crypto_path(@crypto), class: "btn btn-success" %>
   <%# <%= link_to "Delete", crypto_path(@crypto), method: :delete, data: {confirm: "Are u sure?"}%>
-  <%= link_to "Back to cryptos", cryptos_path %>
-  <%= button_to "Destroy this crypto", @crypto, method: :delete, data: {confirm: "Are u sure?"} %>
+  <%= link_to "Back to cryptos", cryptos_path, class:"btn btn-primary"  %>
+  <%= link_to "Destroy this crypto", @crypto, method: :delete, data: {confirm: "Are u sure?"}, class:"btn btn-danger" %>
 </div>
+</div>
+<style>
+.container{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  }
+</style>

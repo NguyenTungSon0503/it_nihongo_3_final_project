@@ -24,9 +24,9 @@
          <% if crypto.symbol == x['symbol'] %>  <%# search coin trong mang my_coins%>
              <td><%= link_to x['name'], crypto %></td> 
              <td><%= number_to_currency(x['quote']['USD']['price'])%></td>
-             <td>$<%= (x['quote']['USD']['price'].to_d * crypto.amount_owned).round(4) %></td>
+             <td>$<%= (x['quote']['USD']['price'].to_d * crypto.amount_owned).round(2) %></td>
              <td>$<%= crypto.cost_per * crypto.amount_owned%></td>  
-             <td>$<%= (x['quote']['USD']['price'].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned)%></td>
+             <td>$<%= ((x['quote']['USD']['price'].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned)).round(2)%></td>
              <% profit_loss += (x['quote']['USD']['price'].to_d * crypto.amount_owned) - (crypto.cost_per * crypto.amount_owned)%>   
          <% end %> 
     <% end %>   
@@ -39,12 +39,21 @@
 </table>
 <br/>
   <strong>Portfolio Profit/Lost:</strong><%= number_to_currency(profit_loss)%>
-<div>
+<div class="container">
   <%= link_to 'New Crypto', new_crypto_path, class: "btn btn-success"%>
 </div>
 <div>
   <%=line_chart (@data_chart_result), prefix: "$", round: 2, zeros: true, refresh: 60 %>
 </div>
+<style>
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
 <%#i=0%>
 <%#count = Portfo.all.pluck(:created_at,:profit).uniq! {|c| c.second}.count%>
 <br>
